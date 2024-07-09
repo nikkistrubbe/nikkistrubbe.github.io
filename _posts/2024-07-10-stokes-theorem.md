@@ -8,3 +8,7 @@ title:  "Stokes' Theorem"
 **Hello world**, this is my first Jekyll blog post.
 
 I hope you like it!
+
+$$
+a^2 + b^2 = c^2
+$$
