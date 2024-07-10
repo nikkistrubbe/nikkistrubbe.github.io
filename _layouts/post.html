@@ -5,9 +5,9 @@
     <title>{{ page.title }}</title>
     <script>
       MathJax = {
-        loader: {load: ['[tex]/physics']},
+        loader: {load: ['[tex]/physics', '[tex]/boldsymbol']},
         tex: {
-          packages: {'[+]': ['physics']},
+          packages: {'[+]': ['physics', 'boldsymbol']},
           inlineMath: [['$', '$'], ['\\(', '\\)']],
           macros: {
               N: "{\\mathbb N}",
@@ -23,7 +23,7 @@
               d : ["{\\mathop{\\mathrm{d} #1}}", 1],
               abs : ["{\\left|#1 \\right|}", 1],
               prn: ["{\\left(#1 \\right)}", 1],
-              bvec : ["{\\mathbf{\\mathrm{#1}}}",1],
+              bvec : ["{\\boldsymbol{\\mathrm{#1}}}",1],
               grad : ["{\\nabla {#1}}", 1],
               div : ["{\\nabla \\cdot {#1}}", 1],
               curl : ["{\\nabla \\times {#1}}", 1],
