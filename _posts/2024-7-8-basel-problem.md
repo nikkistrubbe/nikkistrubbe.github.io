@@ -50,13 +50,13 @@ $$
 
 Here $B_{2k}$ are the Bernoulli numbers, the first few are given by
 
-<center>
+<!--- <center> --->
 
 |  $n$  | $0$ |       $1$      |      $2$      | $3$ |       $4$       | $5$ |       $6$      | $7$ |       $8$       | $9$ |      $10$      | $11$ |         $12$        |
 |:-----:|:---:|:--------------:|:-------------:|:---:|:---------------:|:---:|:--------------:|:---:|:---------------:|:---:|:--------------:|:----:|:-------------------:|
 | $B_n$ | $1$ | $-\frac{1}{2}$ | $\frac{1}{6}$ | $0$ | $-\frac{1}{30}$ | $0$ | $\frac{1}{42}$ | $0$ | $-\frac{1}{30}$ | $0$ | $\frac{5}{66}$ |  $0$ | $-\frac{691}{2730}$ |
 
-</center>
+<!--- </center> --->
 
 These can be calculated recursively, via
 
@@ -117,4 +117,12 @@ Since $\pi \coth(\pi z)$ is an odd function, analogous estimates hold for $\gamm
 $$
 \abs{f(z)} = \abs{\frac{\pi \cot(\pi z)}{z^{2n}}} \leq
 \frac{2\pi}{\abs{z}^{2n}} \leq \frac{2\pi}{k^{2n}},\quad z \in \im \gamma_k.
+$$
+
+## The residue theorem
+By the residue theorem, for $k \in \Z_{\geq 1}$ we have
+
+$$
+\oint_{\gamma_k} f(z)\d{z} = 2\pi i \sum_{m=-k}^k \Res(f; m) =
+2\pi i \prn{}
 $$
