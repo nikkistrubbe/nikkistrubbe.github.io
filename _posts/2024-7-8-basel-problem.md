@@ -158,5 +158,5 @@ $$
 This can be rewritten as
 
 $$
-\zeta(2n+1) = \frac{i}{2}\int_{-\infty}^\infty \frac{\tanh(\pi t)}{\prn{\frac{\pi}{2}+\pi ti}^{2n+1}}\d{t}.
+\zeta(2n+1) = \frac{i}{2\pi}\int_{-\infty}^\infty \frac{\tanh(\pi t)}{\prn{\frac{1}{2}+ti}^{2n+1}}\d{t}.
 $$
