@@ -10,5 +10,5 @@ title:  "Generalised Stokes' Theorem"
 I hope you like it!
 
 $$
-\int_{\Omega} \mathrm{d}\omega = \int_{\partial\Omega} \omega.
+\int_{\Omega} \d{\omega} = \int_{\partial\Omega} \omega.
 $$
