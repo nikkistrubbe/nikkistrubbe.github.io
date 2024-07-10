@@ -28,8 +28,8 @@ Note that generally, we consider $\bvec{E}$, $\bvec{B}$ and $\bvec{J}$ as smooth
 
 $$
 \begin{CD}
-\scC^\infty(M)  @>\grad{}>> \frX(M) @>\curl{}>>     \frX(M) @>\div{}>>              \scC^\infty(M)
-@V\sim V\id V               @V\sim V\flat V         @V\sim V\hodgedual{}\circ\flat V @V\sim V\hodgedual{}V
+\scC^\infty(M)  @>\tgrad>> \frX(M) @>\tcurl>>     \frX(M) @>\tdiv >>              \scC^\infty(M)\\
+@V\sim V\id V               @V\sim V\flat V         @V\sim V\hodgedual{}\circ\flat V @V\sim V\hodgedual{}V\\
 \Omega^0(M)     @>\d{}>>    \Omega^1(M) @>\d{}>>    \Omega^2(M) @>\d{}>>            \Omega^3(M)
 
 \end{CD}
