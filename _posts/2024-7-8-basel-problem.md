@@ -50,9 +50,13 @@ $$
 
 Here $B_{2k}$ are the Bernoulli numbers, the first few are given by
 
-|  $n$  | $0$ |       $1$      |      $2$      | $3$ |       $4$       | $5$ |       $6$      | &7& |       &8&       | &9& |      $10$      | $11$ |         $12$        |
+<center>
+
+|  $n$  | $0$ |       $1$      |      $2$      | $3$ |       $4$       | $5$ |       $6$      | $7$ |       $8$       | $9$ |      $10$      | $11$ |         $12$        |
 |:-----:|:---:|:--------------:|:-------------:|:---:|:---------------:|:---:|:--------------:|:---:|:---------------:|:---:|:--------------:|:----:|:-------------------:|
 | $B_n$ | $1$ | $-\frac{1}{2}$ | $\frac{1}{6}$ | $0$ | $-\frac{1}{30}$ | $0$ | $\frac{1}{42}$ | $0$ | $-\frac{1}{30}$ | $0$ | $\frac{5}{66}$ |  $0$ | $-\frac{691}{2730}$ |
+
+</center>
 
 These can be calculated recursively, via
 
@@ -70,5 +74,47 @@ $$
 Then
 
 $$
-f(z) = \frac{\pi \cot(\pi z)}{z^{2n}} = \frac{1}{z^{2n+1}} + \frac{1}{z^{2n+1}}\sum_{k=0}^\infty \pi^{2k} a_{2k}z^{2k}
+f(z) = \frac{\pi \cot(\pi z)}{z^{2n}} = \frac{1}{z^{2n+1}} + \frac{1}{z^{2n+1}}\sum_{k=0}^\infty \pi^{2k} a_{2k}z^{2k},
+$$
+
+so $\Res(f;0) = \pi^{2n} a_{2n}$.
+
+## Estimating $\pi \cot(\pi z)$ on contours
+For $k \in \Z_{\geq 1}$, we want to integrate around the residues in $-k, -k + 1,\ldots, k-1,k$. We define four paths, which together form such a contour:
+
+- $\gamma_k^{(1)}$, which is the line segment from $k+\frac{1}{2}-ki$ to $k+\frac{1}{2}+ki$;
+- $\gamma_k^{(2)}$, which is the line segment from $k+\frac{1}{2}+ki$ to $-k-\frac{1}{2}+ki$;
+- $\gamma_k^{(3)}$, which is the line segment from $-k-\frac{1}{2}+ki$ to $-k-\frac{1}{2}-ki$.
+- $\gamma_k^{(4)}$, which is the line segment from $-k-\frac{1}{2}-ki$ to $k+\frac{1}{2}-ki$;
+
+Then the closed path $\gamma_k := \gamma_k^{(1)} \cup \gamma_k^{(2)} \cup \gamma_k^{(3)} \cup \gamma_k^{(4)}$ encompasses exactly the residues in $-k, -k + 1,\ldots, k-1,k$.
+
+We want $\lim_{k \to \infty} \oint_{\gamma_k} f(z)\d{z}$ to go to zero. To show this, we have to estimate $\pi \cot(\pi z)$ on each path. On $\gamma_k^{(1)}$, we have for $-k \leq t \leq k$ that
+
+$$
+\abs{\pi \cot\prn{\pi \prn{k + \frac{1}{2} + t i}}} =
+\pi \abs{\tan(\pi t i)} = \pi \abs{\tanh(\pi t)} \leq \pi,
+$$
+
+since $\tanh x$ is an increasing function on $\R$, and $\lim_{x \to \pm\infty} \tanh(x) = \pm 1$.
+
+On $\gamma_k^{(2)}$, we find for $-k-\frac{1}{2} \leq t \leq k + \frac{1}{2}$ using the triangle inequality that
+
+$$
+\begin{aligned}
+    \abs{\pi \cot\prn{\pi\prn{t + ki}}} &= 
+    \pi\abs{\frac{e^{i\pi\prn{t+ki}}+e^{-i\pi\prn{t+ki}}}{e^{i\pi\prn{t+ki}}-e^{-i\pi\prn{t+ki}}}}\\
+    &\leq \pi\frac{\abs{e^{i\pi\prn{t+ki}}}+\abs{e^{-i\pi\prn{t+ki}}}}{\abs{\abs{e^{i\pi\prn{t+ki}}}-\abs{e^{-i\pi\prn{t+ki}}}}}=
+    \pi\frac{e^{-\pi k}+e^{\pi k}}{\abs{e^{-\pi k}-e^{\pi k}}} = \coth(\pi k)\\
+    &\leq \pi \coth \pi \leq \pi \coth(\ln 2) = \frac{5}{3}\pi \leq 2\pi.
+\end{aligned}
+$$
+
+At the end, we have used that $\coth x$ is a decreasing function on $\R_{> 0}$, and that $k \geq 1$.
+
+Since $\pi \coth(\pi z)$ is an odd function, analogous estimates hold for $\gamma_k^{(3)}$ and $\gamma_k^{(4)}$. Thus we conclude that for all $z \in \im \gamma_k$, we have $\abs{\pi \coth(\pi z)} \leq 2\pi$. For $f$, we find 
+
+$$
+\abs{f(z)} = \abs{\frac{\pi \cot(\pi z)}{z^{2n}}} \leq
+\frac{2\pi}{\abs{z}^{2n}} \leq \frac{2\pi}{k^{2n}},\quad z \in \im \gamma_k.
 $$
