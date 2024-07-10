@@ -40,7 +40,7 @@ $$
 f(z) = \frac{\pi \cot(\pi z)}{z^{2n}},
 $$
 
-since it is analytic and for $k \in \Z\setminus \set{0}$, we have $\Res(f; k) = \frac{1}{k^{2n}}$. We only need the residue at $0$. For this, we use the Laurent series of $\cot$:
+since it is analytic and for $k \in \Z\setminus \set{0}$, we have $\Res(f; k) = 1/k^{2n}$. We only need the residue at $0$. For this, we use the Laurent series of $\cot z$:
 
 $$
 \cot(z) = \sum_{k=0}^\infty \frac{(-1)^k 2^{2k}B_{2k}}{(2k)!}z^{2k-1} = 
@@ -50,7 +50,25 @@ $$
 
 Here $B_{2k}$ are the Bernoulli numbers, the first few are given by
 
-| $n$   | $0$ | $1$            | $2$           | $3$ | $4$             | $5$ | $6$            | &7& | &8&             | &9& | $10$           | $11$ | $12$                |
-|-------|-----|----------------|---------------|-----|-----------------|-----|----------------|-----|-----------------|-----|----------------|------|---------------------|
-| $B_n$ | $1$ | $-\frac{1}{2}$ | $\frac{1}{6}$ | $0$ | $-\frac{1}{30}$ | $0$ | $\frac{1}{42}$ | $0$ | $-\frac{1}{30}$ | $0$ | $\frac{5}{66}$ | $0$  | $-\frac{691}{2730}$ |
+|  $n$  | $0$ |       $1$      |      $2$      | $3$ |       $4$       | $5$ |       $6$      | &7& |       &8&       | &9& |      $10$      | $11$ |         $12$        |
+|:-----:|:---:|:--------------:|:-------------:|:---:|:---------------:|:---:|:--------------:|:---:|:---------------:|:---:|:--------------:|:----:|:-------------------:|
+| $B_n$ | $1$ | $-\frac{1}{2}$ | $\frac{1}{6}$ | $0$ | $-\frac{1}{30}$ | $0$ | $\frac{1}{42}$ | $0$ | $-\frac{1}{30}$ | $0$ | $\frac{5}{66}$ |  $0$ | $-\frac{691}{2730}$ |
 
+These can be calculated recursively, via
+
+$$
+\sum_{k=0}^m \binom{m+1}{k} = \delta_{0,m}.
+$$
+
+For simplicity, we write
+
+$$
+\cot(z) = \frac{1}{z} + \frac{1}{z}\sum_{k=0}^\infty a_{2k}z^{2k},\quad
+a_{2k} = \frac{(-1)^k 2^{2k}B_{2k}}{(2k)!}.
+$$
+
+Then
+
+$$
+f(z) = \frac{\pi \cot(\pi z)}{z^{2n}} = \frac{1}{z^{2n+1}} + \frac{1}{z^{2n+1}}\sum_{k=0}^\infty \pi^{2k} a_{2k}z^{2k}
+$$
