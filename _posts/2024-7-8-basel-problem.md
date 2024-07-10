@@ -133,8 +133,16 @@ $$
 \abs{\oint_{\gamma_k} f(z)\d{z}} \leq \frac{2\pi}{k^{2n}}\ell(\gamma_k) = \frac{2\pi}{k^{2n}}\cdot 2(2k + 2k+1) \leq \frac{20\pi}{k^{2n-1}}.
 $$
 
-By letting $k \to \infty$, we finally conclude that
+By letting $k \to \infty$, we conclude that
 
 $$
 0 = \lim_{k \to \infty} \oint_{\gamma_k} f(z)\d{z} = \lim_{k \to \infty} 2\pi i \prn{\pi^{2n}a_{2n} + 2\sum_{m=1}^k \frac{1}{m^{2n}}} = 2\pi i\prn{\pi^{2n}a_{2n} + 2\zeta(2n)}.
 $$
+
+So finally, we have found the value of $\zeta(2n)$, namely
+
+$$
+\zeta(2n) = -\frac{\pi^{2n}}{2}a_{2n} = \frac{(-1)^{n+1} (2\pi)^{2n}B_{2n}}{2(2n)!} = \frac{(2\pi)^{2n}\abs{B_{2n}}}{2(2n)!}.
+$$
+
+In particular $\zeta(2) = \pi^2 B_{2} = \frac{\pi^2}{6}$ and $\zeta(4) = -\frac{\pi^4 B_{4}}{3} = \frac{\pi^4}{90}$.
