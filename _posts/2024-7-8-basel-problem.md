@@ -124,5 +124,17 @@ By the residue theorem, for $k \in \Z_{\geq 1}$ we have
 
 $$
 \oint_{\gamma_k} f(z)\d{z} = 2\pi i \sum_{m=-k}^k \Res(f; m) =
-2\pi i \prn{}
+2\pi i \prn{\pi^{2n}a_{2n} + 2\sum_{m=1}^k \frac{1}{m^{2n}}}.
+$$
+
+On the other hand, using our estimate on $\gamma_k$ for $k$, we find
+
+$$
+\abs{\oint_{\gamma_k} f(z)\d{z}} \leq \frac{2\pi}{k^{2n}}\ell(\gamma_k) = \frac{2\pi}{k^{2n}}\cdot 2(2k + 2k+1) \leq \frac{20\pi}{k^{2n-1}}.
+$$
+
+By letting $k \to \infty$, we finally conclude that
+
+$$
+0 = \lim_{k \to \infty} \oint_{\gamma_k} f(z)\d{z} = \lim_{k \to \infty} 2\pi i \prn{\pi^{2n}a_{2n} + 2\sum_{m=1}^k \frac{1}{m^{2n}}} = 2\pi i\prn{\pi^{2n}a_{2n} + 2\zeta(2n)}.
 $$
