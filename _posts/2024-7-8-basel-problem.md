@@ -152,11 +152,11 @@ A natural follow-up question is: what is $\zeta(2n+1)$? Unfortunately, the same 
 
 $$
 -i\int_{-\infty}^\infty f\prn{\frac{1}{2}+ti}\d{t} =
-\lim_{k \to \infty} \oint_{\gamma_k}f(z)\d{z} = 2\pi i \zeta(2n+1).
+\lim_{k \to \infty} \oint_{\gamma_k}f(z)\d{z} = 2\pi i \zeta(n).
 $$
 
 This can be rewritten as
 
 $$
-\zeta(2n+1) = \frac{i}{2\pi}\int_{-\infty}^\infty \frac{\tanh(\pi t)}{\prn{\frac{1}{2}+ti}^{2n+1}}\d{t}.
+\zeta(n) = \frac{i}{2}\int_{-\infty}^\infty \frac{\tanh(\pi t)}{\prn{\frac{1}{2}+ti}^{n}}\d{t}.
 $$
