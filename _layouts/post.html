@@ -8,9 +8,12 @@
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
           macros: {
-              RR: "{\\bf R}",
-              bold: ["{\\bf #1}", 1],
-            indep: "{\\perp \\!\\!\\! \\perp}",
+              N: "{\\mathbb N}",
+              Z: "{\\mathbb Z}",
+              Q: "{\\mathbb Q}",
+              R: "{\\mathbb R}",
+              C: "{\\mathbb C}",
+              prn: ["{\\left(#1 \\right)}", 1]
             }
         },
         svg: {
@@ -24,7 +27,7 @@
   </head>
   <body>
     <h1>{{ page.title }}</h1>
-    <p>{{ page.date | date_to_string }} - {{ page.author }}</p>
+    <p><b>Published: </b> {{ page.date | date_to_string }}</p>
     {{ content }}
   </body>
 </html>
