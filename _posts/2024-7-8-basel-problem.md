@@ -145,4 +145,18 @@ $$
 \zeta(2n) = -\frac{\pi^{2n}}{2}a_{2n} = \frac{(-1)^{n+1} (2\pi)^{2n}B_{2n}}{2(2n)!} = \frac{(2\pi)^{2n}\abs{B_{2n}}}{2(2n)!}.
 $$
 
-In particular $\zeta(2) = \pi^2 B_{2} = \frac{\pi^2}{6}$ and $\zeta(4) = -\frac{\pi^4 B_{4}}{3} = \frac{\pi^4}{90}$.
+In particular $\zeta(2) = \pi^2 B_{2} = \frac{\pi^2}{6}$ and $\zeta(4) = -\frac{\pi^4}{3}B_{4} = \frac{\pi^4}{90}$.
+
+## What about $\zeta(3)$?
+A natural follow-up question is: what is $\zeta(2n+1)$? Unfortunately, the same trick as above does not work. The function $f(z) = \frac{\pi\coth(\pi z)}{z^{2n+1}}$ is now an odd function, so $\Res(f;-k) = -\Res(f;k)$, so the residues cancel. Taking only the residues in $k \geq 1$ does not solve the problem either, as the integral of $f$ over the line segment between $\frac{1}{2}+ki$ and $\frac{1}{2}-ki$ for $k \to \infty$ does not go to zero. Repeating the above procedure with this new path, we instead find
+
+$$
+-i\int_{-\infty}^\infty f\prn{\frac{1}{2}+ti}\d{t} =
+\lim_{k \to \infty} \oint_{\gamma_k}f(z)\d{z} = 2\pi i \zeta(2n+1).
+$$
+
+This can be rewritten as
+
+$$
+\zeta(2n+1) = \frac{i}{2}\int_{-\infty}^\infty \frac{\tanh(\pi t)}{\prn{\frac{\pi}{2}+\pi ti}^{2n+1}}\d{t}.
+$$
