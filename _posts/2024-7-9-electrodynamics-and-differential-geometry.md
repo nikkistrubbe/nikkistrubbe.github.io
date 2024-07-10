@@ -12,4 +12,25 @@ $$
 \end{aligned}
 $$
 
-Here $\epsilon_0$ and $\mu_0$ are physical constants, called the permittivity of the vacuum and the permeability of the vacuum, respectively.
+Here $\epsilon_0$ and $\mu_0$ are physical constants, called the permittivity of the vacuum and the permeability of the vacuum, respectively. We do not want to worry about them, so we choose units such that $\mu_0 = 1$ and $\epsilon_0 = 1$. There is a lot of hidden differential geometry going on, which is not yet visible. This I want to illustrate in this post.
+
+## Electrostatics
+We start of easy with electrostatics. Here we only consider stationary charges, and no magnetic fields. Then the only relevant equations are 
+
+$$
+\begin{aligned}
+    \div{\bvec{E}} &= \rho, &&
+    \curl{\bvec{E}} &= 0.
+\end{aligned}
+$$
+
+Note that generally, we consider $\bvec{E}$, $\bvec{B}$ and $\bvec{J}$ as smooth vector fields, and $\rho$ a smooth function, depending on space and time. Since in this regime, $\bvec{E}$ and $\rho$ are time-independent, we can consider $\bvec{E}$ and $\rho$ as a smooth vector field $\bvec{E} \in \frX(M)$ and a smooth function $\rho \in \scC^\infty(M)$, for a three dimensional oriented Riemannian manifold $M$. We mostly consider $M = \R^3$, with the Euclidean metric. The metric is needed to define the divergence and curl. They are neatly given by means of exterior derivatives in the following commutative diagram:
+
+$$
+\begin{CD}
+\scC^\infty(M)  @>\grad{}>> \frX(M) @>\curl{}>>     \frX(M) @>\div{}>>              \scC^\infty(M)
+@V\sim V\id V               @V\sim V\flat V         @V\sim V\hodgedual{}\circ\flat V @V\sim V\hodgedual{}V
+\Omega^0(M)     @>\d{}>>    \Omega^1(M) @>\d{}>>    \Omega^2(M) @>\d{}>>            \Omega^3(M)
+
+\end{CD}
+$$
