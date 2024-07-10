@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Stokes' Theorem"
+title:  "Generalised Stokes' Theorem"
 ---
 
 # Welcome
@@ -10,5 +10,5 @@ title:  "Stokes' Theorem"
 I hope you like it!
 
 $$
-a^2 + b^2 = c^2
+\int_{\Omega} \mathrm{d}\omega = \int_{\partial\Omega} \omega.
 $$
