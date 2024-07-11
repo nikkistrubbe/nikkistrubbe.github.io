@@ -101,8 +101,9 @@ $$
     \d{(\hodgedual{B})} &= -\d{t} \wedge j + \pdv{\hodgedual{E}}{t}
 \end{aligned}
 $$
+
 This is not very illuminating. But $\bvec{E}$ and $\bvec{B}$ have each only $3$ components, so it would not make sense to consider them as vector fields on $M$. But a $2$-form on $M$ has $6$ components, so we want to combine $\bvec{E}$ and $\bvec{B}$ into a $2$-form $F \in \Omega^2(M)$. Likewise, we want to combine $\rho$ and $\bvec{j}$ in an object with $4$ components, so a $1$-form or a $3$-form. A way to accomplish this is as follows:
 
 $$
-F = E \wedge \d{t} + B,\quad J = \varrpho + j \wedge \d{t}.
+F = E \wedge \d{t} + B,\quad J = \varrho + j \wedge \d{t}.
 $$
