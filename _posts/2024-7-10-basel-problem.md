@@ -45,29 +45,34 @@ since it is analytic and for $k \in \Z\setminus \set{0}$, we have $\Res(f; k) = 
 $$
 \cot(z) = \sum_{k=0}^\infty \frac{(-1)^k 2^{2k}B_{2k}}{(2k)!}z^{2k-1} = 
 \frac{1}{z} - \frac{1}{3}z - \frac{1}{45}z^3 - \frac{2}{945}z^5 + \scO(z^7).
-
 $$
 
 Here $B_{2k}$ are the Bernoulli numbers, the first few are given by
 
 <!--- <center> --->
 
-|  $n$  | $0$ |       $1$      |      $2$      | $3$ |       $4$       | $5$ |       $6$      | $7$ |       $8$       | $9$ |      $10$      | $11$ |         $12$        |
+|  $k$  | $0$ |       $1$      |      $2$      | $3$ |       $4$       | $5$ |       $6$      | $7$ |       $8$       | $9$ |      $10$      | $11$ |         $12$        |
 |:-----:|:---:|:--------------:|:-------------:|:---:|:---------------:|:---:|:--------------:|:---:|:---------------:|:---:|:--------------:|:----:|:-------------------:|
-| $B_n$ | $1$ | $-\frac{1}{2}$ | $\frac{1}{6}$ | $0$ | $-\frac{1}{30}$ | $0$ | $\frac{1}{42}$ | $0$ | $-\frac{1}{30}$ | $0$ | $\frac{5}{66}$ |  $0$ | $-\frac{691}{2730}$ |
+| $B_k$ | $1$ | $-\frac{1}{2}$ | $\frac{1}{6}$ | $0$ | $-\frac{1}{30}$ | $0$ | $\frac{1}{42}$ | $0$ | $-\frac{1}{30}$ | $0$ | $\frac{5}{66}$ |  $0$ | $-\frac{691}{2730}$ |
 
 <!--- </center> --->
 
-These can be calculated recursively, via
+(There is also another convention, where $B_1 = \frac{1}{2}$). These can be calculated recursively, via
 
 $$
-\sum_{k=0}^m \binom{m+1}{k} = \delta_{0,m}.
+\sum_{k=0}^m \binom{m+1}{k} = \delta_{0,m},
+$$
+
+or via a generating function:
+
+$$
+\frac{z}{e^z - 1 } = \sum_{k=0}^\infty B_k z^k.
 $$
 
 For simplicity, we write
 
 $$
-\cot(z) = \frac{1}{z} + \frac{1}{z}\sum_{k=0}^\infty a_{2k}z^{2k},\quad
+\cot(z) = \frac{1}{z}\sum_{k=0}^\infty a_{2k}z^{2k},\quad
 a_{2k} = \frac{(-1)^k 2^{2k}B_{2k}}{(2k)!}.
 $$
 
@@ -105,14 +110,14 @@ $$
     \abs{\pi \cot\prn{\pi\prn{t + ki}}} &= 
     \pi\abs{\frac{e^{i\pi\prn{t+ki}}+e^{-i\pi\prn{t+ki}}}{e^{i\pi\prn{t+ki}}-e^{-i\pi\prn{t+ki}}}}\\
     &\leq \pi\frac{\abs{e^{i\pi\prn{t+ki}}}+\abs{e^{-i\pi\prn{t+ki}}}}{\abs{\abs{e^{i\pi\prn{t+ki}}}-\abs{e^{-i\pi\prn{t+ki}}}}}=
-    \pi\frac{e^{-\pi k}+e^{\pi k}}{\abs{e^{-\pi k}-e^{\pi k}}} = \coth(\pi k)\\
+    \pi\frac{e^{-\pi k}+e^{\pi k}}{\abs{e^{-\pi k}-e^{\pi k}}} = \pi\coth(\pi k)\\
     &\leq \pi \coth \pi \leq \pi \coth(\ln 2) = \frac{5}{3}\pi \leq 2\pi.
 \end{aligned}
 $$
 
 At the end, we have used that $\coth x$ is a decreasing function on $\R_{> 0}$, and that $k \geq 1$.
 
-Since $\pi \coth(\pi z)$ is an odd function, analogous estimates hold for $\gamma_k^{(3)}$ and $\gamma_k^{(4)}$. Thus we conclude that for all $z \in \im \gamma_k$, we have $\abs{\pi \coth(\pi z)} \leq 2\pi$. For $f$, we find 
+Since $\pi \coth(\pi z)$ is an odd function, analogous estimates hold for $\gamma_k^{(3)}$ and $\gamma_k^{(4)}$. Thus we conclude that for all $z \in \im \gamma_k$, we have $\abs{\pi \cot(\pi z)} \leq 2\pi$. For $f$, we find 
 
 $$
 \abs{f(z)} = \abs{\frac{\pi \cot(\pi z)}{z^{2n}}} \leq
@@ -147,7 +152,78 @@ $$
 
 In particular $\zeta(2) = \pi^2 B_{2} = \frac{\pi^2}{6}$ and $\zeta(4) = -\frac{\pi^4}{3}B_{4} = \frac{\pi^4}{90}$.
 
-<!--->
+## More series
+The above method can be generalised to account for more series than just $\zeta(2n)$. Let $g : \C \to \closure{\C}$ be a meromorphic function, i.e. an analytic function except for isolated singularities, which are poles. We want to calculate $\sum_{k=-\infty}^\infty g(n)$, c.f. $g(z) = \frac{1}{z^{2n}}$ in our previous calculation. So naturally, we consider the meromorphic function
+
+$$
+f(z) = \pi \cot(\pi z) g(z).
+$$
+
+We furthermore assume that on the paths $\gamma_k$, the inequality $\abs{g(z)} \leq \frac{A}{\abs{z}^{1+\varepsilon}}$ holds, for a fixed constant $A \in \C$ and for $k \geq 1$ big enough. This ensures that
+
+$$
+0 = \lim_{k \to \infty} \oint_{\gamma_k} f(z)\d{z} = 2\pi i\lim_{k \to \infty} S_k,
+$$
+
+where $S_k$ is the sum of residues of $f$ in the interior om $\gamma_k$. Since its closure is bounded, there are only finitely many residues inside $\gamma_k$. Thus we can order them in a (finite or infinite) sequence $(r_i)_{i \in I}$, for $I \subseteq \N$. We furthermore assume that $\sum_{i \in I} r_i$ converges absolutely, so that we can rearrange the series as we like. This is automatically the case when $g$ has only finitely many poles, by virtue of $\abs{g(z)} \leq \frac{A}{\abs{z}^{1+\varepsilon}}$ on $\gamma_k$.
+
+For $k \in \Z$ such that $g$ has no pole in $k$, we see that $\Res(f;k) = g(k)$. Let $N \subseteq \C$ be the pole set of $g$. Then we conclude that
+
+$$
+\sum_{k \in \Z \setminus N} g(k) = -\sum_{k \in N} \Res(\pi \cot(\pi z) g(z); k).
+$$
+
+From now on, we consider functions $g(z) = \frac{1}{p(z)}$, for $p \in \C[X]$ a polynomial of degree at least $2$. Then all conditions for $g$ are automatically satisfied.
+
+Consider for instance $g(z) = \frac{1}{(\alpha-z)^2}$, for $\alpha \in \C\setminus \Z$. Then for all $z \in \C\setminus \Z$
+
+$$
+\sum_{k=-\infty}^\infty \frac{1}{(z-k)^2} = -\prn{\pi \cot(\pi z)}' = \frac{\pi^2}{\sin^2 (\pi z)}.
+$$
+
+From this we derive amongst others
+
+$$
+\sum_{k=-\infty}^\infty \frac{1}{(2k+1)^2} = \frac{\pi^2}{4},\quad
+\sum_{k=-\infty}^\infty \frac{1}{(3k+1)^2} = \frac{4}{27}\pi^2,\quad
+\sum_{k=-\infty}^\infty \frac{1}{(4k+1)^2} = \frac{\pi^2}{8},\quad
+\sum_{k=-\infty}^\infty \frac{1}{(6k+1)^2} = \frac{\pi^2}{9}.
+$$
+
+Likewise, for $g(z) = \frac{\alpha}{\alpha^2 - z^2}$, $\alpha \in \C\setminus \Z$, we find a series representation for the cotangent:
+
+$$
+\sum_{k=-\infty}^\infty \frac{z}{z^2 - k^2} = -\prn{-\frac{z\pi \cot(\pi z)}{2z}+\frac{z\pi \cot(-\pi z)}{2z}} = \pi \cot(\pi z).
+$$
+
+Instead of $f$, we can also consider 
+
+$$
+\tilde{f}(z) = \frac{\pi}{\sin (\pi z)}g(z).
+$$
+
+$\pi\csc(\pi z) = \frac{\pi}{\sin (\pi z)}$ has the property that $\Res(\pi \csc(\pi z); k) = (-1)^k$ for $k \in \Z$.
+Analogously, $\pi\csc(\pi z)$ still holds $\abs{\pi \csc(\pi z)} \leq 2\pi$ on $\gamma_k$,
+so we get (under the same conditions on $g$)
+
+$$
+\sum_{k \in \Z \setminus N} (-1)^k g(k) = -\sum_{k \in N} \Res(\pi \csc(\pi z) g(z); k).
+$$
+
+Note that the Laurent series for $\csc(z)$ is given by
+
+$$
+\csc(z) = \frac{1}{z}\sum_{k=0}^\infty b_{2k}z^{2k} = \frac{1}{z} + \frac{1}{6}z + \frac{7}{360}z^3 + \frac{31}{15120}z^5 + \scO(z^7),\quad
+b_{2k} = \frac{(-1)^{k+1} (2^{2k}-2)B_{2k}}{(2k)!}.
+$$
+
+As a last example, we will be calculating $\sum_{k=1}^\infty \frac{(-1)^{k+1}}{k^2}$. For this, we again choose $g(z) = -\frac{1}{z^2}$. Then
+
+$$
+\sum_{k=1}^\infty \frac{(-1)^{k+1}}{k^2} = \frac{1}{2}\Res\prn{\frac{\pi \csc(\pi z)}{z^2}} = \frac{\pi^2}{12}.
+$$
+
+{% comment %} 
 
 ## What about $\zeta(3)$?
 A natural follow-up question is: what is $\zeta(2n+1)$? Unfortunately, the same trick as above does not work. The function $f(z) = \frac{\pi\coth(\pi z)}{z^{2n+1}}$ is now an odd function, so $\Res(f;-k) = -\Res(f;k)$, so the residues cancel. Taking only the residues in $k \geq 1$ does not solve the problem either, as the integral of $f$ over the line segment between $\frac{1}{2}+ki$ and $\frac{1}{2}-ki$ for $k \to \infty$ does not go to zero. Repeating the above procedure with this new path, we instead find
@@ -163,4 +239,33 @@ $$
 \zeta(n) = \frac{i}{2}\int_{-\infty}^\infty \frac{\tanh(\pi t)}{\prn{\frac{1}{2}+ti}^{n}}\d{t}.
 $$
 
-<--->
+{% endcomment %} 
+
+## An application: probability of coprimality
+The Riemann zeta function $\zeta$ has deep connections with prime numbers. This is why the Riemann hypothesis is so important; the non-trivial zeros of $\zeta$ are related to the distribution of primes. I would like to show a much easier, but still really fun application of the Riemann zeta function. We shall be using our calculated value $\zeta(2) = \frac{\p^2}{6}$.
+
+Let $n \in \N$ be a (big) natural number, and consider two natural numbers $a,b \in \set{1,2,\ldots,n}$. What is the probability that $a$ and $b$ are coprime, i.e. $\gcd(a,b) = 1$? Let $p \leq n$ be a prime number. Then $\P(p \divides a) \approx \frac{1}{p}$. Then
+
+$$
+\P(\text{$a$ and $b$ do not share a factor $p$}) = 1-\P(p \divides a)\P(p \divides b) \approx 1-\frac{1}{p^2}.
+$$
+
+To be more precise, in $\set{1,2,\ldots,n}$, there are exactly $\floor{n/p}$ numbers that are divisible by $p$, so $\frac{1}{p}-\frac{1}{n} \leq \P(p \divides a) \leq \frac{1}{p}$, so 
+
+$$
+1-\frac{1}{p^2} \leq \P(\text{$a$ and $b$ do not share a factor $p$}) \leq 1 - \frac{1}{p^2} + \frac{2}{np} - \frac{1}{n^2}.
+$$
+
+From this, we have to multiply over all primes less than or equal to $n$:
+
+$$
+\prod_{\text{$p$ prime} : p \leq n} \prn{1-\frac{1}{p^2}} \leq \P(\gcd(a,b) = 1) \leq 
+\prod_{\text{$p$ prime} : p \leq n} \prn{1-\frac{1}{p^2} + \frac{2}{np} - \frac{1}{n^2}}.
+$$
+
+What happens when $n$ becomes really big? We let $n \to \infty$. First, we take logarithms to turn the infinite products into series:
+
+$$
+\sum_{\text{$p$ prime} : p \leq n} \ln\prn{1-\frac{1}{p^2}} \leq \ln\P(\gcd(a,b) = 1) \leq 
+\sum_{\text{$p$ prime} : p \leq n} \ln\prn{1-\frac{1}{p^2} + \frac{2}{np} - \frac{1}{n^2}}.
+$$
