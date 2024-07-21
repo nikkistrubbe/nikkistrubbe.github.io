@@ -242,7 +242,7 @@ $$
 {% endcomment %} 
 
 ## An application: probability of coprimality
-The Riemann zeta function $\zeta$ has deep connections with prime numbers. This is why the Riemann hypothesis is so important; the non-trivial zeros of $\zeta$ are related to the distribution of primes. I would like to show a much easier, but still really fun application of the Riemann zeta function. We shall be using our calculated value $\zeta(2) = \frac{\p^2}{6}$.
+The Riemann zeta function $\zeta$ has deep connections with prime numbers. This is why the Riemann hypothesis is so important; the non-trivial zeros of $\zeta$ are related to the distribution of primes. I would like to show a much easier, but still really fun application of the Riemann zeta function. We shall be using our calculated value $\zeta(2) = \frac{\pi^2}{6}$.
 
 Let $n \in \N$ be a (big) natural number, and consider two natural numbers $a,b \in \set{1,2,\ldots,n}$. What is the probability that $a$ and $b$ are coprime, i.e. $\gcd(a,b) = 1$? Let $p \leq n$ be a prime number. Then $\P(p \divides a) \approx \frac{1}{p}$. Then
 
