@@ -165,7 +165,7 @@ $$
 0 = \lim_{k \to \infty} \oint_{\gamma_k} f(z)\d{z} = 2\pi i\lim_{k \to \infty} S_k,
 $$
 
-where $S_k$ is the sum of residues of $f$ in the interior om $\gamma_k$. Since its closure is bounded, there are only finitely many residues inside $\gamma_k$. Thus we can order them in a (finite or infinite) sequence $ (r_i)_{i \in I} $, for $I \subseteq \N$. We furthermore assume that $\sum_{i \in I} r_i$ converges absolutely, so that we can rearrange the series as we like. This is automatically the case when $g$ has only finitely many poles, by virtue of $\abs{g(z)} \leq \frac{A}{\abs{z}^{1+\varepsilon}}$ on $\gamma_k$.
+where $S_k$ is the sum of residues of $f$ in the interior om $\gamma_k$. Since its closure is bounded, there are only finitely many residues inside $\gamma_k$. Thus we can order them in a (finite or infinite) sequence $ (r\_i)\_{i \in I} $, for $I \subseteq \N$. We furthermore assume that $\sum_{i \in I} r_i$ converges absolutely, so that we can rearrange the series as we like. This is automatically the case when $g$ has only finitely many poles, by virtue of $\abs{g(z)} \leq \frac{A}{\abs{z}^{1+\varepsilon}}$ on $\gamma_k$.
 
 For $k \in \Z$ such that $g$ has no pole in $k$, we see that $\Res(f;k) = g(k)$. Let $N \subseteq \C$ be the pole set of $g$. Then we conclude that
 
@@ -269,3 +269,39 @@ $$
 \sum_{\text{$p$ prime} : p \leq n} \ln\prn{1-\frac{1}{p^2}} \leq \ln\P(\gcd(a,b) = 1) \leq 
 \sum_{\text{$p$ prime} : p \leq n} \ln\prn{1-\frac{1}{p^2} + \frac{2}{np} - \frac{1}{n^2}}.
 $$
+
+We define for each prime $p$:
+
+$$
+f_n(p) = \begin{cases}
+    \ln\prn{\frac{1-\prn{\frac{1}{p}-\frac{1}{n}}^2}{1-\frac{1}{p^2}}}, &p \leq n,\\
+    0, &p > n.
+\end{cases}
+$$
+This is exactly the difference between the upper bound and the lower bound of $\ln\prn{1-\frac{1}{p^2}}$. Note that for all $n$ and $p$ that 
+
+$$
+\abs{f_n(p)} \leq \ln\prn{1 + \frac{\frac{2p}{n}-\frac{p^2}{n^2}}{p^2 - 1}} \leq 
+\ln\prn{1 + \frac{1}{p^2 - 1}} \leq \frac{1}{p^2 - 1} := g(p),
+$$
+
+where we have used that $\ln(1+x) \leq x$ for all $x \geq 0$. We see that
+
+$$
+\sum_{\text{$p$ prime}} g(p) = \sum_{\text{$p$ prime}} \frac{1}{p^2 - 1} \leq \sum_{k=2}^\infty \frac{1}{k^2 - 1} \leq \sum_{k=1}^\infty \frac{2}{k^2} = 2\zeta(2) < \infty,
+$$
+
+so we can use the dominated convergence theorem. This theorem states that
+
+$$
+\lim_{n \to \infty} \sum_{\text{$p$ prime} : p \leq n} \ln\prn{\frac{1-\prn{\frac{1}{p}-\frac{1}{n}}^2}{1-\frac{1}{p^2}}} = \lim_{n \to \infty} \sum_{\text{$p$ prime}} f_n(p)
+= \sum_{\text{$p$ prime}} \lim_{n \to \infty} f_n(p) = 0.
+$$
+
+Thus by letting $n \to \infty$, we see that 
+
+$$
+\lim_{n \to \infty} \ln\P(\gcd(a,b) = 1) = \sum_{\text{$p$ prime}} \ln\prn{1-\frac{1}{p^2}},
+$$
+
+if this infinite sum exists.
