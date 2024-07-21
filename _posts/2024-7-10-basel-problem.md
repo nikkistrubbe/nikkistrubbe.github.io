@@ -165,7 +165,7 @@ $$
 0 = \lim_{k \to \infty} \oint_{\gamma_k} f(z)\d{z} = 2\pi i\lim_{k \to \infty} S_k,
 $$
 
-where $S_k$ is the sum of residues of $f$ in the interior om $\gamma_k$. Since its closure is bounded, there are only finitely many residues inside $\gamma_k$. Thus we can order them in a (finite or infinite) sequence $(r_i)_{i \in I}$, for $I \subseteq \N$. We furthermore assume that $\sum_{i \in I} r_i$ converges absolutely, so that we can rearrange the series as we like. This is automatically the case when $g$ has only finitely many poles, by virtue of $\abs{g(z)} \leq \frac{A}{\abs{z}^{1+\varepsilon}}$ on $\gamma_k$.
+where $S_k$ is the sum of residues of $f$ in the interior om $\gamma_k$. Since its closure is bounded, there are only finitely many residues inside $\gamma_k$. Thus we can order them in a (finite or infinite) sequence $ (r_i)_{i \in I} $, for $I \subseteq \N$. We furthermore assume that $\sum_{i \in I} r_i$ converges absolutely, so that we can rearrange the series as we like. This is automatically the case when $g$ has only finitely many poles, by virtue of $\abs{g(z)} \leq \frac{A}{\abs{z}^{1+\varepsilon}}$ on $\gamma_k$.
 
 For $k \in \Z$ such that $g$ has no pole in $k$, we see that $\Res(f;k) = g(k)$. Let $N \subseteq \C$ be the pole set of $g$. Then we conclude that
 

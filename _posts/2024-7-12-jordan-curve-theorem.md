@@ -40,7 +40,7 @@ H_{p+1}(U\cup V) @>>> H_p(U \cap V) @>>> H_p(U) \oplus H_p(V) @>>> H_p(U \cup V)
 \end{CD}
 $$
 
-which reduces by the above data to the isomorphism $H_p(U \cap V) \stackrel{\lito}{i_* \oplus j_*} H_p(U) \oplus H_p(V)$, where $i : U \cap V \to U$ and $j : U \cap V \to V$ are the inclusion maps. Assume there exists a $p$-cycle $\alpha \in Z_k(S^2 \setminus \scI)$, which is not a boundary of a $p+1$-cycle, i.e. $[\alpha]$ represents a non-zero element in $H_p(S^2 \setminus \scI)$. Then by the isomorphism, $[\alpha]$ represents a non-zero element in $H_p(U)$ or $H_p(V)$ as well. We then repeat the above argument over and over again on the corresponding homology group. We end up with a nested sequence of closed intervals
+which reduces by the above data to the isomorphism $H_p(U \cap V) \stackrel{i_* \oplus j_*}{\lito} H_p(U) \oplus H_p(V)$, where $i : U \cap V \to U$ and $j : U \cap V \to V$ are the inclusion maps. Assume there exists a $p$-cycle $\alpha \in Z_k(S^2 \setminus \scI)$, which is not a boundary of a $p+1$-cycle, i.e. $[\alpha]$ represents a non-zero element in $H_p(S^2 \setminus \scI)$. Then by the isomorphism, $[\alpha]$ represents a non-zero element in $H_p(U)$ or $H_p(V)$ as well. We then repeat the above argument over and over again on the corresponding homology group. We end up with a nested sequence of closed intervals
 
 $$
 [0,1] = I_0 \supseteq I_1 \supseteq I_2 \supseteq I_3 \supseteq \ldots 
@@ -48,7 +48,7 @@ $$
 
 such that $\alpha$ represents a non-trivial class in $H_p(S^2 \setminus \gamma(I_n))$ for all $n \geq 0$.
 
-Note that $\bigcap_{n=0}^\infty I_n$ consists of precisely one element. Since $\scl(I_n) = 2^{-n}$, the intersection contains at most one element. This element can be found by writing $I_n = [a_n, b_n]$. The sequence $(a_n)_{n \geq 0}$ is bounded from above (by $1$), so $p = \sup_{n=0}^\infty a_n$ exists. Per definition, $a_n \leq p$ for all $n \geq 0$. All the $b_n$'s are upper bounds for $p$, so $p \leq b_n$. This means that $p \in I_n$ for all $n \geq 0$, and thus $\bigcap_{n=0}^\infty I_n = \set{p}$.
+Note that $\bigcap_{n=0}^\infty I_n$ consists of precisely one element. Since $\scl(I_n) = 2^{-n}$, the intersection contains at most one element. This element can be found by writing $I_n = [a_n, b_n]$. The sequence $ (a_n)_{n \geq 0} $ is bounded from above (by $1$), so $p = \sup_{n=0}^\infty a_n$ exists. Per definition, $a_n \leq p$ for all $n \geq 0$. All the $b_n$'s are upper bounds for $p$, so $p \leq b_n$. This means that $p \in I_n$ for all $n \geq 0$, and thus $\bigcap_{n=0}^\infty I_n = \set{p}$.
 
 We consider $\alpha$ on $S^2 \setminus \set{\gamma(p)}$. Since $S^2 \setminus \set{\gamma(p)}$ is homeomorphic to $\R^2$, which is contractible, so there exists a $p+1$ chain $\beta \in C_{p+1}(S^2 \setminus \set{\gamma(p)})$ such that $\alpha = \boundary{\beta}$. We can write $\beta = n_1 \sigma_1 + \ldots + n_m \sigma_m$, for integers $n_i \in \Z$ and singular $p+1$-simplices $\sigma_i : \Delta_{p+1} \to S^2 \setminus \set{\gamma(p)}$. We are interested in the image of $\beta$, which is defined as $\bigcup_{i=1}^m \im \sigma_i$. Since $\Delta_{p+1}$ is compact, so is $\sigma_i$, and thus $\im \beta$. Note however, that
 
@@ -56,7 +56,7 @@ $$
 \im \beta \subseteq S^2 \setminus \set{\gamma(p)} = \bigcup_{n=0}^\infty S^2 \setminus \gamma(I_n),
 $$
 
-so $\set{S^2 \setminus \gamma(I_n) \cap \im \beta}_{n=0}^\infty$ is an open cover for $\im \beta$. So there exists an $n \geq 0$ such that $\im \beta \subseteq S^2 \setminus \gamma(I_n)$. However, this would imply that $\beta \in C_{p+1}(S^2 \setminus \gamma(I_n))$, so $[\alpha] = 0$ in $H_p(S^2 \setminus \gamma(I_n))$, which is a contradiction. So $\alpha$ did not exist in the first place, proving that $H_p(S^2 \setminus \scI) = 0$ for $p \geq 1$.
+so $ \set{S^2 \setminus \gamma(I_n) \cap \im \beta}_{n=0}^\infty $ is an open cover for $\im \beta$. So there exists an $n \geq 0$ such that $\im \beta \subseteq S^2 \setminus \gamma(I_n)$. However, this would imply that $\beta \in C_{p+1}(S^2 \setminus \gamma(I_n))$, so $[\alpha] = 0$ in $H_p(S^2 \setminus \gamma(I_n))$, which is a contradiction. So $\alpha$ did not exist in the first place, proving that $H_p(S^2 \setminus \scI) = 0$ for $p \geq 1$.
 
 For $p = 0$, the argument is analogous; we keep the same $U$ and $V$, and assume that $U \cap V = S^2 \setminus \gamma([0,1])$ has at least two path-components. Let $x,y \in U \cap V$, from different path-components. Then $\alpha := x-y$ represents a non-zero element in $H_0(S^2 \setminus \gamma([0,1]))$. Then the same argument as above applies exactly; since $S^2 \setminus \set{p}$ is path-connected, $\alpha$ is a boundary of a $1$-chain in $S^2 \setminus \set{p}$. By compactness, this $1$-chain lives in $S^2 \setminus \gamma(I_n)$, for some $n \geq 0$, giving a contradiction. So $S^2 \setminus \gamma([0,1])$ is path-connected, and $H_0(S^2 \setminus \gamma([0,1])) = \Z$.
 
