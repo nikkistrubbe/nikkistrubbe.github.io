@@ -278,6 +278,7 @@ f_n(p) = \begin{cases}
     0, &p > n.
 \end{cases}
 $$
+
 This is exactly the difference between the upper bound and the lower bound of $\ln\prn{1-\frac{1}{p^2}}$. Note that for all $n$ and $p$ that 
 
 $$
@@ -285,13 +286,13 @@ $$
 \ln\prn{1 + \frac{1}{p^2 - 1}} \leq \frac{1}{p^2 - 1} := g(p),
 $$
 
-where we have used that $\ln(1+x) \leq x$ for all $x \geq 0$. We see that
+where we have used that $\ln(1+x) \leq x$ for all $x > -1$. We see that
 
 $$
 \sum_{\text{$p$ prime}} g(p) = \sum_{\text{$p$ prime}} \frac{1}{p^2 - 1} \leq \sum_{k=2}^\infty \frac{1}{k^2 - 1} \leq \sum_{k=1}^\infty \frac{2}{k^2} = 2\zeta(2) < \infty,
 $$
 
-so we can use the dominated convergence theorem. This theorem states that
+so we can use the dominated convergence theorem. This theorem allows for interchanging limits and infinite sums:
 
 $$
 \lim_{n \to \infty} \sum_{\text{$p$ prime} : p \leq n} \ln\prn{\frac{1-\prn{\frac{1}{p}-\frac{1}{n}}^2}{1-\frac{1}{p^2}}} = \lim_{n \to \infty} \sum_{\text{$p$ prime}} f_n(p)
@@ -304,4 +305,16 @@ $$
 \lim_{n \to \infty} \ln\P(\gcd(a,b) = 1) = \sum_{\text{$p$ prime}} \ln\prn{1-\frac{1}{p^2}},
 $$
 
-if this infinite sum exists.
+if this infinite sum exists. It does, luckily, and it is related to $\zeta(2)$. Let $p_n$ be the $n$-th prime number, and $\psi(k)$ the highest prime number which divides $k \in \N$. Then
+
+$$
+\begin{aligned}
+    \sum_{\text{$p$ prime}} \ln\prn{1-\frac{1}{p^2}} &= -\sum_{\text{$p$ prime}} \ln \sum_{k=0}^\infty p^{-2k}\\
+    &= -\lim_{n \to \infty}\sum_{m=1}^n \ln \sum_{k=0}^\infty p_m^{-2k}\\
+    &= -\lim_{n \to \infty} \ln \prod_{m=1}^n \prn{1 + \frac{1}{p_m^2} + \frac{1}{p_m^4} + \ldots}\\
+    &= -\lim_{n \to \infty} \ln \sum_{k \geq 1 : \psi(k) \leq p_n} \frac{1}{k^2}\\
+    &= -\ln \sum_{k=1}^\infty \frac{1}{k^2} = -\ln \zeta(2).
+\end{aligned}
+$$
+
+Thus $\lim_{n \to \infty} \P(\gcd(a,b) = 1) = \frac{1}{\zeta(6)} = \frac{6}{\pi^2} \cong 0.608$. Thus in a sense, two natural numbers are coprime with a probability of 60.8%.
