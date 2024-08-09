@@ -1,0 +1,29 @@
+// Breakpoints
+$large-breakpoint: 64em;
+$medium-breakpoint: 42em;
+
+// Colour palette
+$palette-very-light: #7b6d78;
+$palette-light: #bd0ea0;
+$palette-medium: #a3115f;
+$palette-dark: #861568;
+
+// Headers
+$header-heading-color: #ffffff;
+$header-bg-color: $palette-light;
+$header-bg-color-secondary: #5a08d5;
+
+// Text
+$section-headings-color: $palette-medium;
+$body-text-color: #606c71;
+$body-link-color:$palette-medium;
+$blockquote-text-color: #8b206d;
+
+// Code
+$code-bg-color: #f3f6fa;
+$code-text-color: #567482;
+
+// Borders
+$border-color:  $palette-medium;
+$table-border-color: #e9ebec;
+$hr-border-color: #eff0f1;

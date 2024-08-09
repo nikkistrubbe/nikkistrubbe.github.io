@@ -4,61 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <title>{{ page.title }}</title>
-    <script>
-      MathJax = {
-        loader: {load: ['[tex]/physics', '[tex]/boldsymbol']},
-        tex: {
-          packages: {'[+]': ['physics', 'boldsymbol']},
-          inlineMath: [['$', '$'], ['\\(', '\\)']],
-          macros: {
-              N: "{\\mathbb N}",
-              Z: "{\\mathbb Z}",
-              Q: "{\\mathbb Q}",
-              R: "{\\mathbb R}",
-              C: "{\\mathbb C}",
-              P: "{\\mathbb P}",
-              scC : "{\\mathcal C}",
-              scI : "{\\mathcal I}",
-              scO : "{\\mathcal O}",
-              frX : "{\\mathfrak X}",
-              Res : "{\\operatorname{\\mathrm{Res}}}",
-              Re : "{\\operatorname{\\mathrm{Re}}}",
-              Im : "{\\operatorname{\\mathrm{Im}}}",
-              im : "{\\operatorname{\\mathrm{im}}}",
-              gcd : "{\\operatorname{\\mathrm{gcd}}}",
-              id : "{\\operatorname{\\mathrm{id}}}",
-              tgrad : "{\\operatorname{\\mathrm{grad}}}",
-              tdiv : "{\\operatorname{\\mathrm{div}}}",
-              tcurl : "{\\operatorname{\\mathrm{curl}}}",
-              tlap : "{\\operatorname{\\mathrm{lap}}}",
-              d : ["{\\operatorname{\\mathrm{d} #1}}", 1],
-              boundary : ["{\\partial #1}", 1],
-              abs : ["{\\left|#1 \\right|}", 1],
-              floor : ["{\\left\\lfloor{#1}\\right\\rfloor}", 1],
-              ceil : ["{\\left\\lceil{#1}\\right\\rceil}", 1],
-              hodgedual : ["{\\mathord{\\star}#1}", 1],
-              ab : ["{ {#1}\_{\\text{ab}} }",1],
-              prn: ["{\\left(#1 \\right)}", 1],
-              bvec : ["{\\boldsymbol{\\mathrm{#1}}}",1],
-              grad : ["{\\nabla {#1}}", 1],
-              div : ["{\\nabla \\cdot {#1}}", 1],
-              curl : ["{\\nabla \\times {#1}}", 1],
-              lap : ["{\\nabla^2 {#1}}", 1],
-              dal : ["{\\Box {#1}}", 1],
-              ito : ["{\\stackrel{\\sim}{\\to}}"],
-              lito : ["{\\stackrel{\\sim}{\\longrightarrow}}"],
-              lto : ["{\\longrightarrow}"],
-              injto : ["{\\hookrightarrow}"],
-              scl : ["{\\ell}"],
-              closure : ["{\\overline{#1}}", 1],
-              divides : ["{\\mid}"],
-            }
-        },
-        svg: {
-        fontCache: 'global'
-          },
-      };
-    </script>
+    <script type="text/javascript" src="/assets/js/mathjax-setup.js"></script>
     <script type="text/javascript" id="MathJax-script" async
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -66,8 +12,22 @@
   <body>
     <main id="content" class="main-content" role="main">
       <h1>{{ page.title }}</h1>
-      <p><b>Published: </b> {{ page.date | date_to_string }}</p>
+      <p>
+        <b>Published: </b> <span class="date">{{ page.date }}</span>.
+      </p>
+      {% if page.tags %}
+        <p>
+          Topics: 
+          {% for tag in page.tags %}
+            <a href="/posts.html?topic={{ tag | downcase | replace: ' ', '-'}}">#{{ tag | downcase }}</a>
+          {% endfor %}
+        </p>
+      {% endif %}
+      {% if post.assume %}
+        <p>In this post, I assume that you are familiar with {{ post.assume }}.</p>
+      {% endif %}
       {{ content }}
     </main>
+    <script type="text/javascript" src="/assets/js/set-date.js"></script>
   </body>
 </html>
