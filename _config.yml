@@ -1,4 +1,2 @@
-theme: jekyll-theme-cayman
-title: "Nikki Strubbe"
-description: "Description"
+excerpt_separator: <!--more-->
 future: true
